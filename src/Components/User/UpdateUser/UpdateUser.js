@@ -1,7 +1,14 @@
-
 import React, { Component } from 'react'
 
-export default class UpdateUser extends Component {
+import axios from 'axios'
+
+import {connect} from 'react-redux'
+
+import {Link} from 'react-router-dom'
+
+
+
+class UpdateUser extends Component {
     constructor(){
         super()
 
@@ -9,23 +16,22 @@ export default class UpdateUser extends Component {
             full_name: '',
             email: '',
             username: '',
+            password: '',
             admin: ''
         }
     }
 
-    handleFullNameChange(full_nameVal){
-        this.setState({
-            full_mame: full_nameVal
-        })
+    update = () => {
+        const {full_name, email, username, password, admin} = this.props.state
+        axios.put('/api/update', {full_name, email, username, password, admin})
+            .then(res => {
+                
+            })
     }
-    handleEmailChange(emailVal){
+
+    handleChange = (event) => {
         this.setState({
-            email: emailVal
-        })
-    }
-    handleUsernameChange(usernameVal){
-        this.setState({
-            username: usernameVal
+            [event.target.name] : event.target.value
         })
     }
 
@@ -36,26 +42,42 @@ export default class UpdateUser extends Component {
                 <input type='text'
                  placeholder='Full Name'
                  name='full_name'
-                 value={this.state.full_mame}
+                 value={this.props.full_name}
+                 onChange={(e) => this.handleChange(e)}
                 />
 
                 <label>Email</label>
                 <input  type='email'
                  placeholder='Email'
                  name='email'
-                 value={this.state.email}
+                 value={this.props.email}
+                 onChange={(e) => this.handleChange(e)}
                 />
 
                 <label>Username</label>
                 <input  type='text'
                  placeholder='Username'
                  name='username'
-                 value={this.state.username}
+                 value={this.props.username}
+                 onChange={(e) => this.handleChange(e)}
                 />
 
                 <label>Admin</label>
-                <h3>{this.state.admin}</h3>
+                <h3>{this.props.admin}</h3>
+
+                <Link to='/profileUser'>
+                    <button>Cancel</button>
+                </Link>
+
+                <button onClick={this.update}>Update</button>
+
             </div>
         )
     }
 }
+
+function mapStateToProps(state){
+    return state
+}
+
+export default connect(mapStateToProps, {})(UpdateUser)

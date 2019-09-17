@@ -3,6 +3,10 @@ import axios from 'axios'
 
 import './Auth.css'
 
+import {registerUser} from '../../redux/reducer'
+
+import {connect} from 'react-redux'
+
 import {Link} from 'react-router-dom'
 import {withRouter} from 'react-router-dom'
 
@@ -20,6 +24,7 @@ class Auth extends Component {
         const {username, password} = this.state
         axios.post('/api/auth/login', {username, password})
             .then(res => {
+                this.props.registerUser(res.data)
                 this.props.history.push('/home')
             })
             .catch(error => {
@@ -71,4 +76,8 @@ class Auth extends Component {
     }
 }
 
-export default withRouter(Auth)
+function mapStateToProps(state){
+    return state
+}
+
+export default withRouter(connect(mapStateToProps, {registerUser})(Auth))

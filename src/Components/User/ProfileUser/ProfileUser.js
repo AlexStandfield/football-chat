@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
+import {connect} from 'react-redux'
+
 import {Link} from 'react-router-dom'
 import {withRouter} from 'react-router-dom'
 
@@ -29,6 +31,8 @@ class ProfileUser extends Component {
     render() {
         return (
             <div>
+
+                
                 
                 <button onClick={this.logout}>
                     Logout
@@ -45,4 +49,8 @@ class ProfileUser extends Component {
     }
 }
 
-export default withRouter(ProfileUser)
+function mapStateToProps(state){
+    return state
+}
+
+export default withRouter(connect(mapStateToProps, {})(ProfileUser))

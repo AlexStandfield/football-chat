@@ -1,11 +1,17 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
+import {registerUser} from '../../redux/reducer'
+
 import {Link} from 'react-router-dom'
+
+import {connect} from 'react-redux'
+
+import {withRouter} from 'react-router-dom'
 
 import './AuthRegister.css'
 
-export default class AuthRegister extends Component {
+class AuthRegister extends Component {
     constructor(){
         super()
 
@@ -17,6 +23,7 @@ export default class AuthRegister extends Component {
             admin: false
         }
     }
+
     handleChange = (event) => {
         this.setState({
             [event.target.name] : event.target.value
@@ -33,8 +40,9 @@ export default class AuthRegister extends Component {
     register = () => {
         const {full_name, email, username, password, admin} = this.state
         axios.post('/api/auth/register', {full_name, email, username, password, admin})
-            .then(response => {
+            .then(res => {
                 this.props.history.push('/home')
+                this.props.registerUser({full_name, email, username, admin})
             })
             .catch(error => {
                 console.log(error)
@@ -111,3 +119,9 @@ export default class AuthRegister extends Component {
         )
     }
 }
+
+function mapStateToProps(state){
+    return state
+}
+
+export default withRouter(connect(mapStateToProps, {registerUser})(AuthRegister))

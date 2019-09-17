@@ -6,6 +6,7 @@ const session = require('express-session')
 
 // Controllers
 const authCtrl = require('./controllers/authController')
+const ctrl = require('./controllers/controller')
 
 // env Variables
 const {
@@ -44,6 +45,8 @@ massive(CONNECTION_STRING)
 app.post('/api/auth/register', authCtrl.register)
 app.post('/api/auth/login', authCtrl.login)
 app.get('/api/auth/logout', authCtrl.logout)
+
+app.put('/api/update', ctrl.update)
 
 // App Listening
 app.listen(SERVER_PORT, () => {

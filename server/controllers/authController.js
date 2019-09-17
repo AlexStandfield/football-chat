@@ -47,8 +47,7 @@ module.exports = {
             // Remove Password
             delete foundUser[0].password
             req.session.user = foundUser[0]
-            const path = `${username} logged in`
-            res.status(200).send(path)
+            res.status(200).send(foundUser[0])
         } else {
             res.status(401).send('Incorrect Password')
         }
