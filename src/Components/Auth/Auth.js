@@ -42,6 +42,11 @@ class Auth extends Component {
         return (
             <div className='login-container'>
                 <div className='login-box'>
+
+                    <div className='logo'>
+                        <p>Football Chat</p>
+                    </div>
+
                     <div >
                         <label>Username:</label>
                         <input className='inputs'

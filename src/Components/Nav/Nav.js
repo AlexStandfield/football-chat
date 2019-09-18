@@ -2,25 +2,32 @@ import React, { Component } from 'react'
 
 import {Link} from 'react-router-dom'
 
+import * as Icon from 'react-feather'
+
+import './Nav.css'
+
 export default class Nav extends Component {
     render() {
         return (
             <div className='nav-bar'>
-                <Link to='/home'>
-                    <button>
-                        Home
-                    </button>
-                </Link>
-                <Link to='/profileUser' >
-                    <button>
-                        Profile
-                    </button>
-                </Link>
-                <Link to='/teamsUser'>
-                    <button>
-                        Teams
-                    </button>
-                </Link>
+                <div className='top-nav'>
+                    <div className='logo'>
+                        <p>Football Chat</p>
+                    </div>
+                    <div className='icon-border'>
+                        <Link to='/profileUser' >
+                            <Icon.User className='user-icon' />
+                        </Link>
+                    </div>
+                    <Link to='/home'>
+                        <Icon.Home className='home-icon' />
+                    </Link>
+                    <Link to='/teamsUser'>
+                        <button className='teams-button'>
+                            Teams
+                        </button>
+                    </Link>
+                </div>
             </div>
         )
     }

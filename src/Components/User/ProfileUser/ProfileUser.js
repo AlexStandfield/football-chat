@@ -6,6 +6,10 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {withRouter} from 'react-router-dom'
 
+import {registerUser} from '../../../redux/reducer'
+
+import './ProfileUser.css'
+
 class ProfileUser extends Component {
     constructor(){
         super()
@@ -30,20 +34,40 @@ class ProfileUser extends Component {
 
     render() {
         return (
-            <div>
+            <div className='profile-users'>
+                <div className='profile-box'>
+                    <div>
+                        <label>Full Name:</label>
+                        <h3>{this.props.full_name} </h3>
+                    </div>
 
-                
-                
-                <button onClick={this.logout}>
-                    Logout
-                </button>
+                    <div>
+                        <label>Email:</label>
+                        <h3>{this.props.email} </h3>
+                    </div>
 
-                <Link to='/updateUser'>
-                    <button>
-                        Edit
-                    </button>
-                </Link>
-                
+                    <div>
+                        <label>Username:</label>
+                        <h3>{this.props.username} </h3>
+                    </div>
+
+                    <div>
+                        <label>Admin</label>
+                        <h3>{this.props.admin}</h3>
+                    </div>
+
+                    <div className='profile-buttons-box'>
+                        <button className='profile-buttons' onClick={this.logout}>
+                            Logout
+                        </button>
+                        
+                        <Link to='/updateUser'>
+                            <button className='profile-buttons' >
+                                Edit
+                            </button>
+                        </Link>
+                    </div>
+                </div>
             </div>
         )
     }
@@ -53,4 +77,4 @@ function mapStateToProps(state){
     return state
 }
 
-export default withRouter(connect(mapStateToProps, {})(ProfileUser))
+export default withRouter(connect(mapStateToProps, {registerUser})(ProfileUser))
