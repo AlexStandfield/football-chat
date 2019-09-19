@@ -56,5 +56,25 @@ module.exports = {
         // Destory the Session to Logout
         req.session.destroy
         return res.sendStatus(200)
+    },
+    update: (req, res) => {
+        const {full_name, email, username, admin} = req.body
+        const {id} = req.params
+        req.app.get('db').update_user([id, full_name, email, username, admin])
+            .then((response) => res.status(200).send(response))
+            .catch(err => {
+                res.status(500).send({errorMessage: 'Error'})
+                console.log(err)
+            })
+    },
+    delete: (req, res) => {
+        const {id} = req.params
+
+        req.app.get('db').delete_user([id])
+            .then(() => res.sendStatus(200))
+            .catch(err => {
+                res.status(500).send({errorMessage: 'Error'})
+                console.log(err)
+            })
     }
 }

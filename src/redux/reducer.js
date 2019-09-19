@@ -1,4 +1,5 @@
 const initialState = {
+    id: null,
     full_name: '',
     email: '',
     username: '',
@@ -19,6 +20,7 @@ export default function reducer (state = initialState, action){
     switch(action.type){
         case REGISTER_USER:
             const {
+                id,
                 full_name,
                 email,
                 username,
@@ -26,6 +28,7 @@ export default function reducer (state = initialState, action){
             } = action.payload
             return {
                 ...state,
+                id,
                 full_name,
                 email,
                 username,

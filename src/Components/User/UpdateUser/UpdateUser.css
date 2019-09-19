@@ -15,9 +15,20 @@
     align-items: center;
     border: 3px solid black;
     background: white;
+    border-radius: 20px;
 }
 .update-input {
     margin-left: 5px;
+    width: 100px;
+    height: 25px;
+    border: none;
+    font-size: 14px;
+}
+.label-input {
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .update-buttons-box{
     width: 100%;
@@ -31,4 +42,15 @@
     background: #0E4689;
     color: white;
     font-size: 25px;
+    border-radius: 15px;
+}
+.input-box {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 2px solid black;
+    width: 250px;
+    height: 30px;
+    border-radius: 20px;
+    color: blue;
 }

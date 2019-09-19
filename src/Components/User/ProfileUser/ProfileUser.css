@@ -15,8 +15,21 @@
     align-items: center;
     border: 3px solid black;
     background: white;
+    border-radius: 20px;
 }
-
+.input-boxes {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 2px solid black;
+    width: 250px;
+    height: 30px;
+    border-radius: 20px;
+}
+.labels {
+    margin-right: 5px;
+    color: blue;
+}
 .profile-buttons-box{
     width: 100%;
     display: flex;
@@ -29,4 +42,5 @@
     background: #0E4689;
     color: white;
     font-size: 25px;
+    border-radius: 15px;
 }

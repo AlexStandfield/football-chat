@@ -8,6 +8,8 @@ import {Link} from 'react-router-dom'
 
 import './UpdateUser.css'
 
+import {registerUser} from '../../../redux/reducer'
+
 
 
 class UpdateUser extends Component {
@@ -18,16 +20,29 @@ class UpdateUser extends Component {
             full_name: '',
             email: '',
             username: '',
-            password: '',
-            admin: ''
+            admin: false
         }
     }
 
     update = () => {
-        const {full_name, email, username, password, admin} = this.reduxState
-        axios.put('/api/update', {full_name, email, username, password, admin})
+    
+        const {full_name, email, username, admin} = this.state
+        const {id} = this.props
+        axios.put(`/api/update/${id}`, {full_name, email, username, admin})
             .then(res => {
-                
+                this.props.registerUser(res.data)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
+
+    delete = () => {
+        const {id} = this.props
+        console.log(this.props)
+        axios.delete(`/api/deleteUser/${id}`)
+            .then(res => {
+                this.props.history.push('/')
             })
     }
 
@@ -48,8 +63,8 @@ class UpdateUser extends Component {
         return (
             <div className='update-users'>
                 <div className='update-box'>
-                    <div>
-                        <label>Full Name:</label>
+                    <div className='input-box'>
+                        <label className='label-input'>Full Name:</label>
                         <input className='update-input'
                         type='text'
                         placeholder='Full Name'
@@ -59,8 +74,8 @@ class UpdateUser extends Component {
                         />
                     </div>
 
-                    <div>
-                        <label>Email:</label>
+                    <div className='input-box'>
+                        <label className='label-input'>Email:</label>
                         <input  className='update-input'
                         type='email'
                         placeholder='Email'
@@ -70,8 +85,8 @@ class UpdateUser extends Component {
                         />
                     </div>
 
-                    <div>
-                        <label>Username:</label>
+                    <div className='input-box'>
+                        <label className='label-input'>Username:</label>
                         <input  className='update-input'
                         type='text'
                         placeholder='Username'
@@ -81,8 +96,8 @@ class UpdateUser extends Component {
                         />
                     </div>
 
-                    <div>
-                        <label>Admin:</label>
+                    <div className='input-box'>
+                        <label className='label-input'>Admin:</label>
                         <input className='update-input'
                         type='checkbox'
                         name='admin'
@@ -91,7 +106,15 @@ class UpdateUser extends Component {
                         />
                     </div>
 
+                    
+
                     <div className='update-buttons-box'>
+
+                        
+                        <button className='update-buttons' onClick={this.delete}>Delete</button>
+                        
+                        
+
                         <Link to='/profileUser'>
                             <button className='update-buttons'>Cancel</button>
                         </Link>
@@ -109,4 +132,4 @@ function mapStateToProps(state){
     return state
 }
 
-export default connect(mapStateToProps, {})(UpdateUser)
+export default connect(mapStateToProps, {registerUser})(UpdateUser)

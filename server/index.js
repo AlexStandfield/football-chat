@@ -45,8 +45,13 @@ massive(CONNECTION_STRING)
 app.post('/api/auth/register', authCtrl.register)
 app.post('/api/auth/login', authCtrl.login)
 app.get('/api/auth/logout', authCtrl.logout)
+app.put('/api/update/:id', authCtrl.update)
+app.delete('/api/deleteUser/:id', authCtrl.delete)
 
-app.put('/api/update', ctrl.update)
+app.get('/api/allPosts', ctrl.getPosts)
+app.post('/api/addPosts', ctrl.addPosts)
+app.delete('/api.deletePost', ctrl.deletePosts)
+app.put('/api/updatePost', ctrl.updatePosts)
 
 // App Listening
 app.listen(SERVER_PORT, () => {

@@ -50,7 +50,6 @@ class AuthRegister extends Component {
     }
 
     render() {
-        console.log(this.state)
         return (
             <div className='register-container'>
             <div className='register-box'>
