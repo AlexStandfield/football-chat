@@ -9,6 +9,7 @@ import Home from './Components/Home/Home'
 import ProfileUser from './Components/User/ProfileUser/ProfileUser'
 import TeamsUser from './Components/User/TeamsUser/TeamsUser'
 import UpdateUser from './Components/User/UpdateUser/UpdateUser'
+import UserFavTeams from './Components/User/UserFavTeams/UserFavTeams'
 
 import Post from './Components/Admin/Post/Post'
 import ProfileAdmin from './Components/Admin/ProfileAdmin/ProfileAdmin'
@@ -23,6 +24,7 @@ export default (
         <Route path='/profileUser' component={ProfileUser} />
         <Route path='/teamsUser' component={TeamsUser} />
         <Route path='/updateUser' component={UpdateUser} />
+        <Route path='/userFavTeams' component={UserFavTeams} />
 
         <Route path='/post/:postid' component={Post} />
         <Route path='/profileAdmin' component={ProfileAdmin} />

@@ -5,10 +5,10 @@ import './Auth.css'
 
 import {registerUser} from '../../redux/reducer'
 
-import {connect} from 'react-redux'
-
 import {Link} from 'react-router-dom'
 import {withRouter} from 'react-router-dom'
+
+import {connect} from 'react-redux'
 
 class Auth extends Component {
     constructor(){
@@ -18,6 +18,12 @@ class Auth extends Component {
             username: '',
             password: ''
         }
+    }
+
+    handleChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
     }
 
     login = () => {
@@ -30,12 +36,6 @@ class Auth extends Component {
             .catch(error => {
                 console.log(error)
             })
-    }
-
-    handleChange = (event) => {
-        this.setState({
-            [event.target.name]: event.target.value
-        })
     }
 
     render() {

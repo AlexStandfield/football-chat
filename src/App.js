@@ -13,12 +13,12 @@ class App extends Component {
  render() {
    return (
      <div className='app-container'>
-       {this.props.location.pathname === '/' || this.props.location.pathname === '/authRegister' ?
-         null
-         :
-         <Nav />
-       }
-       {routes}
+        {this.props.location.pathname === '/' || this.props.location.pathname === '/authRegister' ?
+          null
+          :
+          <Nav />
+        }
+        {routes}
      </div>
    )
  }

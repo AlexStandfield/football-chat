@@ -1,4 +1,4 @@
 INSERT INTO posts
-(teamId, title, description)
+(teamID, title, description)
 VALUES
 ($1, $2, $3)

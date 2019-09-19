@@ -7,6 +7,8 @@ const session = require('express-session')
 // Controllers
 const authCtrl = require('./controllers/authController')
 const ctrl = require('./controllers/controller')
+const favCtrl = require('./controllers/favController')
+const teamsCtrl = require('./controllers/teamsController')
 
 // env Variables
 const {
@@ -50,8 +52,14 @@ app.delete('/api/deleteUser/:id', authCtrl.delete)
 
 app.get('/api/allPosts', ctrl.getPosts)
 app.post('/api/addPosts', ctrl.addPosts)
-app.delete('/api.deletePost', ctrl.deletePosts)
-app.put('/api/updatePost', ctrl.updatePosts)
+app.delete('/api/deletePost/:id', ctrl.deletePosts)
+app.put('/api/updatePost/:id', ctrl.updatePosts)
+
+app.get('/api/allFavorites/:id', favCtrl.getFavorites)
+app.post('/api/addFavorites', favCtrl.addFavorites)
+app.delete('/api/deleteFavorites/:id', favCtrl.deleteFavorites)
+
+app.get('/api/allTeams', teamsCtrl.getTeams)
 
 // App Listening
 app.listen(SERVER_PORT, () => {

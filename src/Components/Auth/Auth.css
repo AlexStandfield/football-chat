@@ -6,7 +6,7 @@
     align-items: center;
 }
 .login-box {
-    width: 70vw;
+    width: 60vw;
     height: 70vh;
     display: flex;
     flex-direction: column;

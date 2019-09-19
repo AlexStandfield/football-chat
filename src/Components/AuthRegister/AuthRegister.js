@@ -1,15 +1,14 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
+import './AuthRegister.css'
+
 import {registerUser} from '../../redux/reducer'
 
 import {Link} from 'react-router-dom'
-
-import {connect} from 'react-redux'
-
 import {withRouter} from 'react-router-dom'
 
-import './AuthRegister.css'
+import {connect} from 'react-redux'
 
 class AuthRegister extends Component {
     constructor(){

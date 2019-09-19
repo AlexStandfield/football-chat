@@ -22,7 +22,7 @@ export default class Nav extends Component {
                     <Link to='/home'>
                         <Icon.Home className='home-icon' />
                     </Link>
-                    <Link to='/teamsUser'>
+                    <Link to='/userFavTeams'>
                         <button className='teams-button'>
                             Teams
                         </button>
