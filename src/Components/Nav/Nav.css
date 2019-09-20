@@ -27,8 +27,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
-    background: #C3001D;
+    border: 3px solid black;
+    background: #EA1B24;
     box-shadow: 5px 0px 10px;
 }
 .logo > p {

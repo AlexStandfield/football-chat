@@ -48,7 +48,7 @@ class Auth extends Component {
                     </div>
 
                     <div >
-                        <label>Username:</label>
+                        <label className='auth-label'>Username:</label>
                         <input className='inputs'
                         type='text'
                         placeholder='username'
@@ -59,7 +59,7 @@ class Auth extends Component {
                      </div>
 
                     <div>
-                        <label>Password:</label>
+                        <label className='auth-label'>Password:</label>
                         <input className='inputs'
                         type='password'
                         placeholder='password'
@@ -69,11 +69,11 @@ class Auth extends Component {
                         />
                      </div>
                     
-                    <div className='buttons'>
+                    <div className='buttons-box'>
                         <Link to='/authRegister'>
-                        <button>Register</button>
+                            <button className='auth-buttons'>Register</button>
                         </Link>
-                        <button onClick={this.login} >Log In</button>
+                        <button className='auth-buttons' onClick={this.login} >Log In</button>
                     </div>
                 </div>
             </div>

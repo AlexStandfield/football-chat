@@ -13,6 +13,7 @@ class App extends Component {
  render() {
    return (
      <div className='app-container'>
+       <div className='background'> </div>
         {this.props.location.pathname === '/' || this.props.location.pathname === '/authRegister' ?
           null
           :

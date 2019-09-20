@@ -1,12 +1,18 @@
 import React, { Component } from 'react'
 
-import {Link} from 'react-router-dom'
+import {Link, withRouter} from 'react-router-dom'
+
+import {registerUser} from '../../redux/reducer'
+
+import {connect} from 'react-redux'
 
 import * as Icon from 'react-feather'
 
 import './Nav.css'
 
-export default class Nav extends Component {
+
+
+class Nav extends Component {
     render() {
         return (
             <div className='nav-bar'>
@@ -32,3 +38,9 @@ export default class Nav extends Component {
         )
     }
 }
+
+function mapStateToProps(state){
+    return state
+}
+
+export default withRouter(connect(mapStateToProps, {registerUser})(Nav))

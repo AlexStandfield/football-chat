@@ -53,8 +53,8 @@ class AuthRegister extends Component {
             <div className='register-container'>
             <div className='register-box'>
                 <div>
-                    <label>Full Name:</label>
-                    <input className='input'
+                    <label className='register-label'>Full Name:</label>
+                    <input className='inputs'
                     type='text'
                     placeholder='Full Name'
                     name='full_name'
@@ -64,8 +64,8 @@ class AuthRegister extends Component {
                 </div>
 
                 <div>
-                <label>Email:</label>
-                    <input  className='input'
+                <label className='register-label'>Email:</label>
+                    <input  className='inputs'
                     type='email'
                     placeholder='Email'
                     name='email'
@@ -75,8 +75,8 @@ class AuthRegister extends Component {
                 </div>
 
                 <div>
-                <label>Username:</label>
-                    <input  className='input'
+                <label className='register-label'>Username:</label>
+                    <input  className='inputs'
                     type='text'
                     placeholder='Username'
                     name='username'
@@ -86,8 +86,8 @@ class AuthRegister extends Component {
                 </div>
 
                 <div>
-                    <label>Password:</label>
-                    <input  className='input'
+                    <label className='register-label'>Password:</label>
+                    <input  className='inputs'
                     type='password'
                     placeholder='Password'
                     name='password'
@@ -97,20 +97,20 @@ class AuthRegister extends Component {
                 </div>
 
                 <div>
-                    <label>Admin:</label>
+                    <label className='register-label'>Admin:</label>
                     <input type='checkbox'
-                     className='input'
+                     className='inputs'
                      name='admin'
                      onClick={this.toggleAdmin}
                     />
                 </div>
 
-                <div className='buttons'>
+                <div className='register-buttons-box'>
                     <Link to='/'>
-                        <button>Cancel</button>
+                        <button className='register-buttons'>Cancel</button>
                     </Link>
                     
-                    <button onClick={this.register}>Submit</button>
+                    <button className='register-buttons' onClick={this.register}>Submit</button>
                 </div>
             </div>
             </div>

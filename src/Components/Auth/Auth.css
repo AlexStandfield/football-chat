@@ -15,11 +15,32 @@
     border: solid 3px black;
     background: white;
 }
-.input {
-    margin-left: 10px;
+.auth-label {
+    font-size: 30px;
 }
-.buttons {
+.inputs {
+    margin-left: 10px;
+    width: 125px;
+    height: 20px;
+    position: relative;
+    bottom: 3px;
+    font-size: 15px;
+}
+.buttons-box {
     width: 50%;
     display: flex;
     justify-content: space-between;
+}
+.auth-buttons {
+    border: 2px solid black;
+    width: 100px;
+    height: 50px;
+    background: blue;
+    color: white;
+    font-size: 20px;
+    border-radius: 15px;
+}
+.auth-buttons:hover{
+    background: #6AADCA;
+    cursor: pointer;
 }

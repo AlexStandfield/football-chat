@@ -21,7 +21,7 @@
     align-items: center;
     border: 3px solid black;
     font-size: 30px;
-    background: #C3001D;
+    background: #EA1B24;
     color:white
 }
 .description {
@@ -49,4 +49,8 @@
     border-radius: 15px;
     background: #0E4689;
     color: white;
+}
+.posts-buttons:hover {
+    background: #6AADCA;
+    cursor: pointer;
 }
