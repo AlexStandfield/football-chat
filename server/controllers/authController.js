@@ -7,13 +7,13 @@ module.exports = {
         // DB Instance
         const db = req.app.get('db')
         // Look for an Existing user with that username
-        const foundUser = await db.find_user([username])
+        const foundUser = await db.user.find_user([username])
         // Check to see if that username exists
         if(foundUser[0]){
             return res.status(409).send('Username is Taken')
         }
         // Look for an Existing user with that email
-        const foundEmail = await db.find_email([email])
+        const foundEmail = await db.user.find_email([email])
         // Check to see if that email exists
         if(foundEmail[0]){
             return res.status(409).send('Email is already in use')
@@ -22,7 +22,7 @@ module.exports = {
         const passwordSalt = bcrypt.genSaltSync(15)
         const passwordHash = bcrypt.hashSync(password, passwordSalt)
         // Register the User
-        const newUser = await db.register_user([full_name, email, username, passwordHash, admin])
+        const newUser = await db.user.register_user([full_name, email, username, passwordHash, admin])
         //Remove Password
         delete newUser[0].password
         // Session
@@ -36,7 +36,7 @@ module.exports = {
         // DB Instance
         const db = req.app.get('db')
         // Find User with Username
-        const foundUser = await db.find_user([username]) 
+        const foundUser = await db.user.find_user([username]) 
         // Check to see length of User
         if(!foundUser[0]){
             return res.status(409).send('Incorrect Username')
@@ -59,8 +59,8 @@ module.exports = {
     },
     update: (req, res) => {
         const {full_name, email, username, admin} = req.body
-        const {id} = req.params
-        req.app.get('db').update_user([id, full_name, email, username, admin])
+        const {id} = req.session.user
+        req.app.get('db').user.update_user([id, full_name, email, username, admin])
             .then((response) => res.status(200).send(response))
             .catch(err => {
                 res.status(500).send({errorMessage: 'Error'})
@@ -68,9 +68,9 @@ module.exports = {
             })
     },
     delete: (req, res) => {
-        const {id} = req.params
+        const {id} = req.session.user
 
-        req.app.get('db').delete_user([id])
+        req.app.get('db').user.delete_user([id])
             .then(() => res.sendStatus(200))
             .catch(err => {
                 res.status(500).send({errorMessage: 'Error'})
