@@ -10,8 +10,6 @@ import * as Icon from 'react-feather'
 
 import './Nav.css'
 
-
-
 class Nav extends Component {
     render() {
         return (
