@@ -4,15 +4,24 @@ const initialState = {
     email: '',
     username: '',
     password: '',
-    admin: false
+    admin: false,
+    favorites: []
 }
 
 const REGISTER_USER = 'REGISTER_USER'
+const GET_FAVORITES = 'GET_FAVORITES'
 
 export function registerUser(data) {
     return {
         type: REGISTER_USER,
         payload: data
+    }
+}
+
+export function getFavorites(favorites){
+    return{
+        type: GET_FAVORITES,
+        payload: favorites
     }
 }
 
@@ -34,6 +43,8 @@ export default function reducer (state = initialState, action){
                 username,
                 admin
             }
+        case GET_FAVORITES:
+            return{...state, favorites: action.payload}
         default:
             return state
     }

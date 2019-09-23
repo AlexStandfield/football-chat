@@ -1,0 +1,3 @@
+CREATE TABLE chat_rooms (
+    id SERIAL PRIMARY KEY
+)

@@ -3,6 +3,7 @@ const express = require('express')
 const massive = require('massive')
 const cors = require('cors')
 const session = require('express-session')
+const socket = require('socket.io')
 
 // Controllers
 const authCtrl = require('./controllers/authController')
@@ -19,6 +20,12 @@ const {
 
 // App Instance
 const app = express()
+    io = socket(
+        // App Listening
+        app.listen(SERVER_PORT, () => {
+            console.log('Server is Running! 🏈')
+        })
+    )
 
 // TLM
 app.use(express.json())
@@ -55,13 +62,33 @@ app.post('/api/addPosts', ctrl.addPosts)
 app.delete('/api/deletePost/:id', ctrl.deletePosts)
 app.put('/api/updatePost/:id', ctrl.updatePosts)
 
-app.get('/api/allFavorites/:id', favCtrl.getFavorites)
+app.get('/api/allFavorites/:userID', favCtrl.getFavorites)
 app.post('/api/addFavorites', favCtrl.addFavorites)
 app.delete('/api/deleteFavorites/:id', favCtrl.deleteFavorites)
 
 app.get('/api/allTeams', teamsCtrl.getTeams)
 
-// App Listening
-app.listen(SERVER_PORT, () => {
-    console.log('Server is Running! 🏈')
+io.on('connection', socket => {
+    console.log('User Connected')
+
+    socket.on('join room', async data => {
+        const {room} = data
+        const db = app.get('db')
+        console.log('Room Joined')
+        let existingRoom = await db.chat.check_chat_room({id: room})
+        !existingRoom.length ? db.chat.create_chat_rooms({id: room}) : null
+        let messages = await db.messages.chat_message_history({id: room})
+        socket.join(room)
+        io.to(room).emit('toom joined', messages)
+    })
+    socket.on('message sent', async data => {
+        const {room, message} = data
+        const db = app.get('db')
+        await db.messages.create_chat_messages({id: room, message})
+        let messages = await db.messages.chat_message_history({id: room})
+        io.to(data.room).emit('message dispatched', messages)
+    })
+    socket.on('disconnect', () => {
+        console.log('User Disconnected')
+    })    
 })

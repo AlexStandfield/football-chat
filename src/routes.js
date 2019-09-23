@@ -15,6 +15,8 @@ import Post from './Components/Admin/Post/Post'
 import ProfileAdmin from './Components/Admin/ProfileAdmin/ProfileAdmin'
 import TeamsAdmin from './Components/Admin/TeamsAdmin/TeamsAdmin'
 
+import ChatRoom from './Components/ChatRooms/ChatRooms'
+
 // Router
 export default (
     <Switch>
@@ -29,5 +31,7 @@ export default (
         <Route path='/post/:postid' component={Post} />
         <Route path='/profileAdmin' component={ProfileAdmin} />
         <Route path='/teamsAdmin' component={TeamsAdmin} />
+
+        <Route path='/chatRooms' component={ChatRoom} />
     </Switch>
 )

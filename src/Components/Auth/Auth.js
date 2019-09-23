@@ -47,7 +47,7 @@ class Auth extends Component {
                         <p>Football Chat</p>
                     </div>
 
-                    <div >
+                    <div className='auth-input-box' >
                         <label className='auth-label'>Username:</label>
                         <input className='inputs'
                         type='text'
@@ -58,7 +58,7 @@ class Auth extends Component {
                         />
                      </div>
 
-                    <div>
+                    <div className='auth-input-box'>
                         <label className='auth-label'>Password:</label>
                         <input className='inputs'
                         type='password'

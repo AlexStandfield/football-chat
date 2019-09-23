@@ -1,6 +1,8 @@
 module.exports = {
     getFavorites: (req, res) => {
-        const {userID} = req.body
+        const {userID} = req.params
+
+        console.log(userID)
         req.app.get('db').favorites.get_favorites([userID])
             .then(favorites => res.status(200).send(favorites))
             .catch(err => res.status(500).send(err))
@@ -20,7 +22,7 @@ module.exports = {
         req.app.get('db').favorites.delete_favorites([id])
             .then(() => res.sendStatus(200))
             .catch(err => {
-                res.status(500).send({errorMessafe: 'Cannod Delete Favorite'})
+                res.status(500).send({errorMessage: 'Cannod Delete Favorite'})
                 console.log(err)
             })
     }
