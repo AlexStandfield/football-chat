@@ -20,8 +20,8 @@ class UserFavTeams extends Component {
     }
 
     componentDidMount(){
-        const {userID} = this.props
-        axios.get(`/api/allFavorites/${userID}`)
+        const {id} = this.props.user
+        axios.get(`/api/allFavorites/${id}`)
             .then((res) => {
                 this.props.getFavorites(res.data)
             })
@@ -31,7 +31,7 @@ class UserFavTeams extends Component {
     }
 
     render() {
-        const favorites = this.state.favorites.map((favorites, i) => {
+        const favorites = this.props.user.favorites.map((favorites, i) => {
             return(
                 <FavTeams key={i} name={favorites.name} logo={favorites.logo} title={favorites.title} description={favorites.description} />
             )

@@ -5,8 +5,8 @@ import reducer from './reducer'
 import postsReducer from './postsReducer'
 
 const rootReducer = combineReducers({
-    reducer,
-    postsReducer
+   user: reducer,
+    posts: postsReducer
 })
 
 export default createStore(rootReducer, applyMiddleware (promisedMiddleware))

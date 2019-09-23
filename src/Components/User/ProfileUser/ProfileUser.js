@@ -38,22 +38,22 @@ class ProfileUser extends Component {
                 <div className='profile-box'>
                     <div className='input-boxes'>
                         <label className='labels'>Full Name:</label>
-                        <h3>{this.props.full_name} </h3>
+                        <h3>{this.props.user.full_name} </h3>
                     </div>
 
                     <div className='input-boxes'>
                         <label className='labels'>Email:</label>
-                        <h3>{this.props.email} </h3>
+                        <h3>{this.props.user.email} </h3>
                     </div>
 
                     <div className='input-boxes'>
                         <label className='labels'>Username:</label>
-                        <h3>{this.props.username} </h3>
+                        <h3>{this.props.user.username} </h3>
                     </div>
 
                     <div className='input-boxes'>
                         <label className='labels'>Admin:</label>
-                        <h3>{this.props.admin}</h3>
+                        <h3>{this.props.user.admin}</h3>
                     </div>
 
                     <div className='profile-buttons-box'>
