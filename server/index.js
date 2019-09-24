@@ -72,20 +72,21 @@ io.on('connection', socket => {
     console.log('User Connected')
 
     socket.on('join room', async data => {
+        console.log('hit')
         const {room} = data
         const db = app.get('db')
         console.log('Room Joined')
         let existingRoom = await db.chat.check_chat_room({id: room})
         !existingRoom.length ? db.chat.create_chat_rooms({id: room}) : null
-        let messages = await db.messages.chat_message_history({id: room})
+        let messages = await db.messages.chat_messages_history({id: room})
         socket.join(room)
-        io.to(room).emit('toom joined', messages)
+        io.to(room).emit('room joined', messages)
     })
     socket.on('message sent', async data => {
         const {room, message} = data
         const db = app.get('db')
         await db.messages.create_chat_messages({id: room, message})
-        let messages = await db.messages.chat_message_history({id: room})
+        let messages = await db.messages.chat_messages_history({id: room})
         io.to(data.room).emit('message dispatched', messages)
     })
     socket.on('disconnect', () => {

@@ -36,9 +36,10 @@ class Home extends Component {
     }
     
     render(){
+        console.log(this.props.user)
         const mappedPosts = this.state.posts.map((posts, i) => {
             return (
-                <TeamsUser key={i} id={posts.id} teamID={posts.teamID} title={posts.title} description={posts.description} />
+                <TeamsUser key={i} id={posts.id} chat_room_id={posts.chat_room_id} teamID={posts.teamID} title={posts.title} description={posts.description} />
             )
         })
         return(

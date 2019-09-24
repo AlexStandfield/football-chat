@@ -1,2 +1,2 @@
 DELETE FROM favorites
-WHERE id = $1
+WHERE teamID = $1 AND userID = $2

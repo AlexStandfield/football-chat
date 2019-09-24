@@ -4,13 +4,15 @@ import io from 'socket.io-client'
 
 import './ChatRooms.css'
 
-export default class ChatRooms extends Component {
+import {connect} from 'react-redux'
+
+class ChatRooms extends Component {
     constructor(){
         super()
 
         this.state ={
             input: '',
-            // message: '',
+            message: '',
             messages: [],
             room: '',
             joined: false
@@ -18,6 +20,9 @@ export default class ChatRooms extends Component {
     }
 
     componentDidMount(){
+        this.setState({
+            room: this.props.user.chat_room_id
+        })
         this.socket = io()
         this.socket.on('room joined', data => {
             this.joinSuccess(data)
@@ -32,7 +37,7 @@ export default class ChatRooms extends Component {
     }
     sendMessage = () => {
         this.socket.emit('message sent', {
-            messages: this.state.input,
+            message: this.state.input,
             room: this.state.room
         })
         this.setState({
@@ -66,7 +71,7 @@ export default class ChatRooms extends Component {
                 null
                 }
                 <div>
-                    {this.state.messages.map(messageObj => <h2 key={messageObj.id}>{messageObj.message}</h2>)}
+                    {this.state.messages.map(messages => <h2 key={messages.id}>{messages.message}</h2>)}
                 </div>
                 {
                     this.state.joined
@@ -83,14 +88,19 @@ export default class ChatRooms extends Component {
                     <div className='chat-join'>
                         <input className='input-room' value ={this.state.room} onChange = {e => {
                             this.setState({
-                                room: e.target.balue
+                                room: e.target.value
                             })
                         }} />
                         <button className='join-button' onClick={this.joinRoom}>Join</button>
                     </div>
                 }   
-                
             </div>
         )
     }
 }
+
+function mapStateToProps(state){
+    return state
+}
+
+export default connect(mapStateToProps)(ChatRooms)

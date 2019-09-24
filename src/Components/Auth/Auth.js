@@ -44,7 +44,7 @@ class Auth extends Component {
                 <div className='login-box'>
 
                     <div className='logo'>
-                        <p>Football Chat</p>
+                        <p>Locker Room Chat</p>
                     </div>
 
                     <div className='auth-input-box' >

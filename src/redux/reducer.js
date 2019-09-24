@@ -5,11 +5,13 @@ const initialState = {
     username: '',
     password: '',
     admin: false,
-    favorites: []
+    favorites: [],
+    chat_room_id: null
 }
 
 const REGISTER_USER = 'REGISTER_USER'
 const GET_FAVORITES = 'GET_FAVORITES'
+const GET_CHAT_ROOM_ID = 'GET_CHAT_ROOM_ID'
 
 export function registerUser(data) {
     return {
@@ -22,6 +24,13 @@ export function getFavorites(favorites){
     return{
         type: GET_FAVORITES,
         payload: favorites
+    }
+}
+
+export function getChatRoomID(id){
+    return{
+        type: GET_CHAT_ROOM_ID,
+        payload: id
     }
 }
 
@@ -45,6 +54,8 @@ export default function reducer (state = initialState, action){
             }
         case GET_FAVORITES:
             return{...state, favorites: action.payload}
+        case GET_CHAT_ROOM_ID:
+            return{...state, chat_room_id: action.payload}
         default:
             return state
     }

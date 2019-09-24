@@ -1,6 +1,6 @@
 const initialState = {
     id: null,
-    teamID: null,
+    teamid: null,
     title: '',
     description: '',
     posts: []
@@ -20,14 +20,14 @@ export default function postsReducer(state = initialState, action){
         case GET_POSTS:
             const {
                 id,
-                teamID,
+                teamid,
                 title,
                 description
             } = action.payload
             return {
                 ...state,
                 id,
-                teamID,
+                teamid,
                 title,
                 description
             }

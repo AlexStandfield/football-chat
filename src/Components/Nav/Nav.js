@@ -14,9 +14,12 @@ class Nav extends Component {
     render() {
         return (
             <div className='nav-bar'>
+                <div className='navbar-lines'>
+                    <Icon.Menu className='navbar-icon' />
+                </div>
                 <div className='top-nav'>
                     <div className='logo'>
-                        <p>Football Chat</p>
+                        <p>Locker Room Chat</p>
                     </div>
                     <div className='icon-border'>
                         <Link to='/profileUser' >

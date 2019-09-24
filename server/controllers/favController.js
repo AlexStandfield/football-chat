@@ -17,12 +17,12 @@ module.exports = {
         })
     },
     deleteFavorites: (req, res) => {
-        const {id} = req.params
+        const {teamID, userID} = req.params
 
-        req.app.get('db').favorites.delete_favorites([id])
+        req.app.get('db').favorites.delete_favorites([teamID, userID])
             .then(() => res.sendStatus(200))
             .catch(err => {
-                res.status(500).send({errorMessage: 'Cannod Delete Favorite'})
+                res.status(500).send({errorMessage: 'Cannot Delete Favorite'})
                 console.log(err)
             })
     }
