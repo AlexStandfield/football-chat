@@ -39,7 +39,6 @@ class UpdateUser extends Component {
 
     delete = () => {
         const {id} = this.props
-        console.log(this.props)
         axios.delete(`/api/deleteUser/${id}`)
             .then(res => {
                 this.props.history.push('/')
@@ -69,7 +68,7 @@ class UpdateUser extends Component {
                         type='text'
                         placeholder='Full Name'
                         name='full_name'
-                        // value={this.props.full_name}
+                        // value={this.props.user.full_name}
                         onChange={(e) => this.handleChange(e)}
                         />
                     </div>
@@ -80,7 +79,7 @@ class UpdateUser extends Component {
                         type='email'
                         placeholder='Email'
                         name='email'
-                        // value={this.props.email}
+                        // value={this.props.user.email}
                         onChange={(e) => this.handleChange(e)}
                         />
                     </div>
@@ -91,7 +90,7 @@ class UpdateUser extends Component {
                         type='text'
                         placeholder='Username'
                         name='username'
-                        // value={this.props.username}
+                        // value={this.props.user.username}
                         onChange={(e) => this.handleChange(e)}
                         />
                     </div>
@@ -101,7 +100,7 @@ class UpdateUser extends Component {
                         <input className='update-input'
                         type='checkbox'
                         name='admin'
-                        // value={this.props.admin}
+                        // value={this.props.user.admin}
                         onClick={this.toggleAdmin}
                         />
                     </div>
@@ -111,16 +110,16 @@ class UpdateUser extends Component {
                     <div className='update-buttons-box'>
 
                         
-                        <button className='update-buttons' onClick={this.delete}>Delete</button>
+                        <button className='buttons' onClick={this.delete}>Delete</button>
                         
                         
 
                         <Link to='/profileUser'>
-                            <button className='update-buttons'>Cancel</button>
+                            <button className='buttons'>Cancel</button>
                         </Link>
                     
 
-                        <button className='update-buttons' onClick={this.update}>Update</button>
+                        <button className='buttons' onClick={this.update}>Update</button>
                     </div>
                 </div>
             </div>

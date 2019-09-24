@@ -6,7 +6,7 @@
     align-items: center;
 }
 .login-box {
-    width: 60vw;
+    width: 50vw;
     height: 70vh;
     display: flex;
     flex-direction: column;
@@ -14,58 +14,89 @@
     align-items: center;
     border: solid 3px black;
     background: white;
+    border-radius: 5%;
 }
-.auth-label {
-    font-size: 30px;
+.logo{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#lockerroom{
+    font-family: 'Permanent Marker', cursive;
+    font-size: 50px;
+    padding: 0px 0 3px 0;
+}
+#chat{
+    font-family: 'Overpass', sans-serif;
+    font-size: 50px;
+    color: #EB1B24;
+}
+.auth-input-box{
+    width: 100%;
+    height: 5%;
+    display: flex;
+    justify-content: center;
+
 }
 .inputs {
     margin-left: 10px;
-    width: 125px;
-    height: 20px;
+    width: 45%;
+    height: 100%;
     position: relative;
     bottom: 3px;
-    font-size: 15px;
+    font-size: 20px;
+    padding: 0 15px 0 10px;
+    border: none;
+    border: solid 1px #ccc;
+    border-radius: 5px;
+    color: #ccc;
 }
 .buttons-box {
-    width: 50%;
+    width: 100%;
+    height: 10%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    align-items: center;
 }
-.auth-buttons {
-    border: 2px solid black;
-    width: 100px;
-    height: 50px;
-    background: blue;
-    color: white;
+#auth-buttons {
+    border: 1px solid #6AADCA;;
+    width: 30%;
+    height: 55%;
+    color: #6AADCA;;
     font-size: 20px;
     border-radius: 15px;
+    margin-bottom: 25px;
 }
-.auth-buttons:hover{
+#auth-buttons:hover{
     background: #6AADCA;
+    color: white;
     cursor: pointer;
 }
-@media (max-width: 700px){
-    .login-box{
-        width: 50vw;
-        height: 60vh;
-    }
-    .auth-input-box{
-        display: flex;
-        flex-direction: column;
-    }
-    .auth-label{
-        font-size: 25px;
-        margin-bottom: 15px;
-    }
+@media(max-width:550px){
     .buttons-box{
         flex-direction: column;
+        justify-content: space-evenly;
         align-items: center;
-        justify-content: center;
     }
-    .auth-buttons{
-        margin-bottom: 10px;
-        width: 80px;
-        height: 35px;
-        font-size: 15px;
+    #auth-buttons{
+        width: 55%;
+    }
+}
+
+@media(max-width:800px){
+    .logo{
+        flex-direction: column;
+    }
+    #lockerroom{
+        font-size: 40px;
+    }
+    #chat{
+        font-size: 40px;
+    }
+    .chat-container{
+        width: 60%;
+        display: flex;
+        justify-content: flex-end;
     }
 }

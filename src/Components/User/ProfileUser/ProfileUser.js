@@ -53,16 +53,16 @@ class ProfileUser extends Component {
 
                     <div className='input-boxes'>
                         <label className='labels'>Admin:</label>
-                        <h3>{this.props.user.admin}</h3>
+                        <h3>{this.props.user.admin === false ? 'False' : 'True'}</h3>
                     </div>
 
                     <div className='profile-buttons-box'>
-                        <button className='profile-buttons' onClick={this.logout}>
+                        <button className='buttons' onClick={this.logout}>
                             Logout
                         </button>
                         
                         <Link to='/updateUser'>
-                            <button className='profile-buttons' >
+                            <button className='buttons' >
                                 Edit
                             </button>
                         </Link>

@@ -23,26 +23,42 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    border: 2px solid black;
+    border: 1px solid black;
     width: 250px;
     height: 30px;
     border-radius: 20px;
 }
 .labels {
     margin-right: 5px;
-    color: blue;
+    color: #0E4689;
 }
 .profile-buttons-box{
     width: 100%;
     display: flex;
     justify-content: space-evenly;
 }
-.profile-buttons {
-    width: 100px;
-    height: 50px;
-    border: none;
-    background: #0E4689;
-    color: white;
+.buttons {
+    width: 150px;
+    height: 35px;
+    color: #0E4689;
+    border: 1px solid #0E4689;
     font-size: 25px;
     border-radius: 15px;
+    margin-top:25px;
+}
+.buttons:hover {
+    color: white;
+    background: #0E4689;
+    cursor: pointer;
+}
+
+@media(max-width:700px){
+    .profile-users{
+        left: 10vw;
+    }
+    .profile-buttons-box{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }

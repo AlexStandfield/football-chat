@@ -11,7 +11,9 @@
     margin: 100px;
     position: relative;
     left: 18vw;
-    box-shadow: 10px 10px 10px;
+    -webkit-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75);
+    box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75);
 }
 .title {
     width: 100%;
@@ -19,10 +21,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 3px solid black;
+    border: 1px solid black;
     font-size: 30px;
     background: #EA1B24;
-    color:white
+    color:white;
 }
 .description {
     width: 90%;
@@ -38,20 +40,21 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border: 3px solid black;
+    border: 1px solid black;
     border-bottom: none;
 }
-.posts-buttons {
+#posts-buttons {
     width: 75px;
     height: 25px;
-    font-size: 20px;
-    border: none;
+    font-size: 17px;
+    border: 1px solid #0E4689;
     border-radius: 15px;
+    background: white;
+    color: #0E4689;
+}
+#posts-buttons:hover {
     background: #0E4689;
     color: white;
-}
-.posts-buttons:hover {
-    background: #6AADCA;
     cursor: pointer;
 }
 @media(max-width: 700px){

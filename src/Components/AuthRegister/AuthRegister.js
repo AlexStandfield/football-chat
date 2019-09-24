@@ -5,7 +5,6 @@ import './AuthRegister.css'
 
 import {registerUser} from '../../redux/reducer'
 
-import {Link} from 'react-router-dom'
 import {withRouter} from 'react-router-dom'
 
 import {connect} from 'react-redux'
@@ -42,8 +41,13 @@ class AuthRegister extends Component {
             .then(res => {
                 this.props.history.push('/home')
                 this.props.registerUser({full_name, email, username, admin})
-            })
-            .catch(error => {
+                axios.post('/api/mail', {email})
+                    .then(res => {
+                        console.log('Yeeeeee')
+                    }).catch(error => {
+                        console.log(error)
+                    })
+            }).catch(error => {
                 console.log(error)
             })
     }
@@ -52,8 +56,9 @@ class AuthRegister extends Component {
         return (
             <div className='register-container'>
             <div className='register-box'>
-                <div>
-                    <label className='register-label'>Full Name:</label>
+            <h1>Register User</h1>
+                <div className='div'>
+                    {/* <label className='register-label'>Full Name:</label> */}
                     <input className='inputs'
                     type='text'
                     placeholder='Full Name'
@@ -63,8 +68,8 @@ class AuthRegister extends Component {
                     />
                 </div>
 
-                <div>
-                <label className='register-label'>Email:</label>
+                <div className='div'>
+                {/* <label className='register-label'>Email:</label> */}
                     <input  className='inputs'
                     type='email'
                     placeholder='Email'
@@ -74,8 +79,8 @@ class AuthRegister extends Component {
                     />
                 </div>
 
-                <div>
-                <label className='register-label'>Username:</label>
+                <div className='div'>
+                {/* <label className='register-label'>Username:</label> */}
                     <input  className='inputs'
                     type='text'
                     placeholder='Username'
@@ -85,8 +90,8 @@ class AuthRegister extends Component {
                     />
                 </div>
 
-                <div>
-                    <label className='register-label'>Password:</label>
+                <div className='div'>
+                    {/* <label className='register-label'>Password:</label> */}
                     <input  className='inputs'
                     type='password'
                     placeholder='Password'
@@ -95,20 +100,17 @@ class AuthRegister extends Component {
                     onChange={(e) => this.handleChange(e)}
                     />
                 </div>
-
-                <div>
-                    <label className='register-label'>Admin:</label>
+                <div className='admin-check'>
                     <input type='checkbox'
-                     className='inputs'
+                     className='box-input'
                      name='admin'
                      onClick={this.toggleAdmin}
                     />
+                    <label>Make user admin</label>
                 </div>
 
                 <div className='register-buttons-box'>
-                    <Link to='/'>
-                        <button className='register-buttons'>Cancel</button>
-                    </Link>
+                        <button onClick={() => this.props.history.push('/')} className='register-buttons'>Cancel</button>
                     
                     <button className='register-buttons' onClick={this.register}>Submit</button>
                 </div>

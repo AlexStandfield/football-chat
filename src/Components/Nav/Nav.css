@@ -1,62 +1,66 @@
+@import url('https://fonts.googleapis.com/css?family=Overpass|Permanent+Marker&display=swap');
 .nav-bar {
     width: 15%;
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background: #0E4689;
     justify-content: top;
     align-items: center;
-    box-shadow: 7px 0px 10px; 
-    margin-right: 20px;
     position: fixed;
-    left: 0;
+    left: 0px;
 }
-.navbar-lines{
+.navbar-icon{
     display: none;
+    position: fixed;
+    left: 0px;
+    width: 15%;
+    height: 50px;
+    background: #0E4689;
 }
 .top-nav {
     width: 100%;
-    height: 50%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between; 
-    margin-top: 20px;
+    justify-content: top; 
+    background: #0E4689;
+    box-shadow: 7px 0px 10px;
 }
-.logo {
-    width: 200px;
-    height: 120px;
-    color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 3px solid black;
-    background: #EA1B24;
-    box-shadow: 5px 0px 10px;
+.logo{
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
-.logo > p {
+.lockerroom{
+    font-family: 'Permanent Marker', cursive;
     font-size: 25px;
-    color: white;
+    color: #EB1B24;
+}
+.chat{
+    font-family: 'Overpass', sans-serif;
+    font-size: 25px;
 }
 .icon-border {
-    width: 90px;
-    height: 90px;
+    width: 55px;
+    height: 55px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 5px solid white;
+    border: 4px solid white;
     border-radius: 50%;
     background: none;
+    margin-bottom: 25px;
 }
 .user-icon {
-    width: 75px;
-    height: 75px;
+    width: 45px;
+    height: 45px;
     color: white;
 }
 .home-icon {
     width: 60px;
     height: 60px;
     color: white;
+    margin-bottom: 25px;
 }
 .teams-button {
     border: none;
@@ -65,21 +69,47 @@
     font-size: 40px;
     cursor: pointer;
 }
+.menu{
+    display: none;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: top; 
+    background: #0E4689;
+    position: relative;
+    margin-top: 50px;
+    left: -250px;
+}
 
-@media(max-width: 700px){
-    .nav-bar {
-        display: none;
-    }
-    .navbar-lines{
+.slide{
+    left: 0px;
+}
+
+@media(max-width: 1200px){
+    .logo{
         display: flex;
         flex-direction: column;
-        justify-content: top;
-        align-items: center;
-        position: fixed;
-        left: 0px;
-        width: 15%;
-        height: 15%;
-        background: #0E4689;
-        margin-right: 20px;
+    }
+}
+
+@media(max-width: 800px){
+    .lockerroom{
+        font-size: 15px;
+    }
+    .chat{
+        font-size: 15px;
+    }
+}
+
+@media(max-width: 700px){
+    .navbar-icon{
+        display: flex;
+    }
+    .top-nav{
+        display: none;
+    }
+    .menu{
+        display: flex;
     }
 }

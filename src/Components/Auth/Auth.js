@@ -5,7 +5,6 @@ import './Auth.css'
 
 import {registerUser} from '../../redux/reducer'
 
-import {Link} from 'react-router-dom'
 import {withRouter} from 'react-router-dom'
 
 import {connect} from 'react-redux'
@@ -42,13 +41,16 @@ class Auth extends Component {
         return (
             <div className='login-container'>
                 <div className='login-box'>
-
+                    
                     <div className='logo'>
-                        <p>Locker Room Chat</p>
+                        <div id='lockerroom'>LockerRoom</div>
+                        <div className='chat-container'>
+                            <div id='chat'>Chat</div>
+                        </div>
                     </div>
 
                     <div className='auth-input-box' >
-                        <label className='auth-label'>Username:</label>
+                        {/* <label className='auth-label'>Username:</label> */}
                         <input className='inputs'
                         type='text'
                         placeholder='username'
@@ -59,7 +61,7 @@ class Auth extends Component {
                      </div>
 
                     <div className='auth-input-box'>
-                        <label className='auth-label'>Password:</label>
+                        {/* <label className='auth-label'>Password:</label> */}
                         <input className='inputs'
                         type='password'
                         placeholder='password'
@@ -70,10 +72,8 @@ class Auth extends Component {
                      </div>
                     
                     <div className='buttons-box'>
-                        <Link to='/authRegister'>
-                            <button className='auth-buttons'>Register</button>
-                        </Link>
-                        <button className='auth-buttons' onClick={this.login} >Log In</button>
+                        <button onClick={() => this.props.history.push('/authRegister')} id='auth-buttons'>Register</button>
+                        <button id='auth-buttons' onClick={this.login} >Log In</button>
                     </div>
                 </div>
             </div>

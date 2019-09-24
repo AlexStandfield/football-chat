@@ -10,6 +10,7 @@ const authCtrl = require('./controllers/authController')
 const ctrl = require('./controllers/controller')
 const favCtrl = require('./controllers/favController')
 const teamsCtrl = require('./controllers/teamsController')
+const mailCtrl = require('./controllers/mailController')
 
 // env Variables
 const {
@@ -68,11 +69,12 @@ app.delete('/api/deleteFavorites/:id', favCtrl.deleteFavorites)
 
 app.get('/api/allTeams', teamsCtrl.getTeams)
 
+app.post('/api/mail', mailCtrl.mail)
+
 io.on('connection', socket => {
     console.log('User Connected')
 
     socket.on('join room', async data => {
-        console.log('hit')
         const {room} = data
         const db = app.get('db')
         console.log('Room Joined')
