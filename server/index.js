@@ -5,6 +5,7 @@ const cors = require('cors')
 const session = require('express-session')
 const socket = require('socket.io')
 
+
 // Controllers
 const authCtrl = require('./controllers/authController')
 const ctrl = require('./controllers/controller')
@@ -21,14 +22,15 @@ const {
 
 // App Instance
 const app = express()
-    io = socket(
-        // App Listening
-        app.listen(SERVER_PORT, () => {
-            console.log('Server is Running! 🏈')
-        })
+io = socket(
+    // App Listening
+    app.listen(SERVER_PORT, () => {
+        console.log('Server is Running! 🏈')
+    })
     )
-
-// TLM
+    
+    // TLM
+app.use(express.static(`${__dirname}/../build`))
 app.use(express.json())
 app.use(cors())
 app.use(session({
