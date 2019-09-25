@@ -68,8 +68,7 @@ module.exports = {
             })
     },
     delete: (req, res) => {
-
-        const {id} = req.params
+        const {id} = req.session.user
 
         req.app.get('db').user.delete_user([id])
             .then(() => res.sendStatus(200))

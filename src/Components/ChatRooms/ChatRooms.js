@@ -66,23 +66,23 @@ class ChatRooms extends Component {
     render() {
         return (
             <div className='chat-room'>
-                {this.state.joined ? <h1>My Room: {this.state.room}</h1>
+                {this.state.joined ? <h1 className='room-number'>Room: {this.state.room}</h1>
                 :
                 null
                 }
-                <div>
-                    {this.state.messages.map(messages => <h2 key={messages.id}>{messages.message}</h2>)}
+                <div className='message-display'>
+                    {this.state.messages.map(messages => <h2 className='messages' key={messages.id}>{messages.message}</h2>)}
                 </div>
                 {
                     this.state.joined
                     ?
                     <div>
-                        <input value={this.state.input} onChange = {e => {
+                        <input className='send-input' value={this.state.input} onChange = {e => {
                             this.setState({
                                 input: e.target.value
                             })
                         }} />
-                        <button onClick={this.sendMessage}>Send</button>
+                        <button className='send-button' onClick={this.sendMessage}>Send</button>
                     </div>
                     :
                     <div className='chat-join'>

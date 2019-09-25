@@ -50,23 +50,25 @@
     border: none;
     border: solid 1px #ccc;
     border-radius: 5px;
-    color: #ccc;
+    color: black;
 }
 .buttons-box {
     width: 100%;
     height: 10%;
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: flex-end;
+    position: relative;
+    top: 34px;
 }
 #auth-buttons {
     border: 1px solid #6AADCA;;
     width: 30%;
     height: 55%;
-    color: #6AADCA;;
+    color: #6AADCA;
     font-size: 20px;
     border-radius: 15px;
-    margin-bottom: 25px;
+    margin-top: 50px;
 }
 #auth-buttons:hover{
     background: #6AADCA;

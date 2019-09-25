@@ -56,7 +56,7 @@ class AuthRegister extends Component {
         return (
             <div className='register-container'>
             <div className='register-box'>
-            <h1>Register User</h1>
+            <h1 className='register-user'>Register User</h1>
                 <div className='div'>
                     {/* <label className='register-label'>Full Name:</label> */}
                     <input className='inputs'
@@ -106,7 +106,7 @@ class AuthRegister extends Component {
                      name='admin'
                      onClick={this.toggleAdmin}
                     />
-                    <label>Make user admin</label>
+                    <label className='make-admin'>Make user admin</label>
                 </div>
 
                 <div className='register-buttons-box'>
