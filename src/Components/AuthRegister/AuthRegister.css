@@ -19,7 +19,7 @@
 .register-user{
     font-family: 'Permanent Marker', cursive;
     font-size: 50px;
-    color: #EB1B24;
+    color: #0E4689;
 
 }
 .div{
@@ -39,7 +39,7 @@
     justify-content: space-evenly;
 }
 .register-buttons {
-    border: 1px solid #6AADCA;;
+    border: 1px solid #6AADCA;
     width: 30%;
     height: 125%;
     color: #6AADCA;;

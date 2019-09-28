@@ -23,7 +23,10 @@
     align-items: center;
     border: 1px solid black;
     font-size: 30px;
-    background: #EA1B24;
+    background: radial-gradient(
+        #6AADCA,
+        #0E4689
+    );
     color:white;
 }
 .description {

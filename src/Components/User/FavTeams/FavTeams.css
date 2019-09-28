@@ -21,7 +21,11 @@
     align-items: center;
     border: 3px solid black;
     font-size: 30px;
-    background: #EA1B24;
+    background: linear-gradient(
+        to left,
+        #6AADCA 1%,
+        #0E4689 99%
+    );
     color:white
 }
 .description {

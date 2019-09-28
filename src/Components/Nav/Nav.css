@@ -34,11 +34,12 @@
 .lockerroom{
     font-family: 'Permanent Marker', cursive;
     font-size: 25px;
-    color: #EB1B24;
+    color: #6AADCA;
 }
 .chat{
     font-family: 'Overpass', sans-serif;
     font-size: 25px;
+    color: white;
 }
 .icon-border {
     width: 55px;

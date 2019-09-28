@@ -13,6 +13,9 @@ const favCtrl = require('./controllers/favController')
 const teamsCtrl = require('./controllers/teamsController')
 const mailCtrl = require('./controllers/mailController')
 
+// Middleware
+const middleware = require('./middleware/middleware')
+
 // env Variables
 const {
     CONNECTION_STRING,
