@@ -40,15 +40,15 @@
 .buttons {
     width: 150px;
     height: 35px;
-    color: #0E4689;
-    border: 1px solid #0E4689;
+    color: #3D7AAA;
+    border: 1px solid #3D7AAA;
     font-size: 25px;
     border-radius: 15px;
     margin-top:25px;
 }
 .buttons:hover {
     color: white;
-    background: #0E4689;
+    background: #3D7AAA;
     cursor: pointer;
 }
 

@@ -47,9 +47,9 @@
     width: 100px;
     height: 40px;
     border-radius: 15px;
-    color: #0E4689;
+    color: #3D7AAA;
     background: white;
-    border: 1px solid #0E4689;
+    border: 1px solid #3D7AAA;
     font-size: 20px;
     margin-left: 15px;
     margin-bottom: 10px;
@@ -72,22 +72,22 @@
     font-size: 20px;
 }
 .join-button {
-    border: 1px solid #0E4689;
+    border: 1px solid #3D7AAA;
     width: 100px;
     height: 40px;
     background: white;
-    color: #0E4689;
+    color: #3D7AAA;
     font-size: 20px;
     border-radius: 15px;
     margin-left: 10px;
 }
 .join-button:hover{
     color: white;
-    background: #0E4689;
+    background: #3D7AAA;
     cursor: pointer;
 }
 .send-button:hover{
     color: white;
-    background: #0E4689;
+    background: #3D7AAA;
     cursor: pointer;
 }

@@ -2,7 +2,6 @@ module.exports = {
     getFavorites: (req, res) => {
         const {userID} = req.params
 
-        console.log(userID)
         req.app.get('db').favorites.get_favorites([userID])
             .then(favorites => res.status(200).send(favorites))
             .catch(err => res.status(500).send(err))

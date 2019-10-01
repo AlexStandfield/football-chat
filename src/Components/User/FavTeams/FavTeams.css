@@ -11,7 +11,9 @@
     margin: 100px;
     position: relative;
     left: 18vw;
-    box-shadow: 10px 10px 10px;
+    -webkit-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75);
+    box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75);
 }
 .title {
     width: 100%;
@@ -51,11 +53,12 @@
     font-size: 20px;
     border: none;
     border-radius: 15px;
-    background: #0E4689;
-    color: white;
+    background: white;
+    color: #3D7AAA;
+    border: 1px solid #3D7AAA;
 }
 .posts-buttons:hover {
-    background: #6AADCA;
+    background: #3D7AAA;
     cursor: pointer;
 }
 @media(max-width: 700px){
